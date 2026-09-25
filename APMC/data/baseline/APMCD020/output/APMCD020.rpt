@@ -1,0 +1,25 @@
+APPAYSL1                AP PAYMENT SELECTION - PAYMENT CONTROL REPORT                           RUN DATE 2026-09-24                 
+                                                                                                PAY DATE 2026-09-29                 
+                                                                                                                                    
+SELECTION SUMMARY                                                                                                                   
+  VENDORS LOADED                      12                                                                                            
+  VOUCHERS READ                       44                                                                                            
+  VOUCHERS PAID                       25                                                                                            
+  VOUCHERS DEFERRED                   15                                                                                            
+  VOUCHERS HELD                        4                                                                                            
+  DISCOUNTS TAKEN                      7                                                                                            
+  DISCOUNTS LOST                       3                                                                                            
+  PAY METHOD CHANGED                   2                                                                                            
+  GROSS PAID                              1,935,290.57                                                                              
+  DISCOUNT TAKEN                              9,583.79                                                                              
+  DISCOUNT LOST                               4,384.09                                                                              
+  AMOUNT PAID                             1,925,706.78                                                                              
+  NET DEFERRED                            1,211,288.58                                                                              
+  NET HELD                                  190,746.10                                                                              
+                                                                                                                                    
+PAYMENTS BY METHOD                                                                                                                  
+  PAY METHOD    PAYMENTS  VOUCHERS           AMOUNT PAID                                                                            
+  ACH                  7        20          1,696,045.68                                                                            
+  CHK                  2         5            229,661.10                                                                            
+                                                                                                                                    
+*** END OF REPORT ***                                                                                                               
