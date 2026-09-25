@@ -12,7 +12,6 @@ APMC/                 accounts payable
   db2/                DDL for tables the application unloads from
   layouts/            DD -> copybook -> LRECL -> business key map
   data/baseline/      approved inputs + the legacy job's outputs, per job, checksummed
-tools/                demo-only local emulation (GnuCOBOL), not part of a real extract
 ```
 
 > Demo repository. Every job, vendor, invoice and amount is synthetic.
@@ -29,14 +28,15 @@ APRCVLN  receipts ─┼─ SORT ─ APMATCH1 ─────────┼─ 
 APVENDOR vendors  ─┘   (3-way match, terms)    └─ APRPT    control report   (+ return code 0/4/8/16)
 ```
 
-## Reproducing the baseline locally
+## Where the baseline comes from
 
-```bash
-sudo apt-get install -y gnucobol       # GnuCOBOL stands in for Enterprise COBOL
-tools/build.sh
-tools/run_apmcd010.sh                  # -> work/APMCD010/, exit code 4 (exceptions written)
-diff -r work/APMCD010 APMC/data/baseline/APMCD010/output   # identical (MAXCC file aside)
-```
+`APMC/data/baseline/<JOB>/` holds, per job:
 
-At Lowe's the baseline comes from a controlled mainframe run on masked data,
-not from GnuCOBOL. `tools/gen_apmcd010_data.py` regenerates the synthetic inputs.
+- `input/`  - the approved (masked) input files and the SYSIN control card
+- `output/` - the files the **legacy job produced** from those inputs on the
+  mainframe, plus `MAXCC` (its return code)
+- `SHA256SUMS` - checksums; any migration must verify these before comparing
+
+The baseline is produced by a controlled mainframe run owned by the application
+team. Migration sessions never run the COBOL: they read it, and they compare the
+new job's output against these files.
