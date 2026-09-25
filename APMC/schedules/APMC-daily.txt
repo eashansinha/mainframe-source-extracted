@@ -8,11 +8,14 @@ RCVXT010  00:45  WMS receipts feed               -> APMCD010          (0)
 APMCD005  01:00  EDI 810 + scanned invoices      -> APMCD010          (0,4)
 APMCD010  01:30  APMCV001 POXTR010 RCVXT010
                  APMCD005                        -> APMCD020 APMCD030 (0,4)
-APMCD020  03:00  APMCD010                        -> TRSD100 (treasury ACH/check files)
-APMCD030  05:00  APMCD010                        -> AP clerk work queue (online)
+APMCD020  03:00  APMCD010 APMCV001               -> TRSD100 (treasury ACH/check) (0,4)
+APMCD030  05:00  APMCD010 APMCV001               -> AP clerk work queue (online) (0,4)
 
 Notes
 - APMCD010 RC 4 (exceptions written) is normal; RC 8+ holds APMCD020 and pages AP ops.
 - APMCD020 pays only what APMCD010 wrote to AP.PROD.APVOUCHR.DAILY(0).
-- Only APMCD010 is in scope for the demo migration; the others are listed for
+- APMCD020 RC 4 (vouchers held for vendor status) is normal; RC 8+ holds TRSD100.
+- APMCD030 RC 4 means priority-1 items (possible duplicate payments) are queued.
+- APMCD010, APMCD020 and APMCD030 are in scope for the demo migration and each has
+  its own baseline under data/baseline/<JOB>/. The others are listed for
   dependency context.

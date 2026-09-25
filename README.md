@@ -5,9 +5,10 @@ Extract of mainframe source, organised by **application mnemonic**
 
 ```
 APMC/                 accounts payable
-  cobol/              programs            APMATCH1.cbl
+  cobol/              programs            APMATCH1 APPAYSL1 APEXQUE1
   copybooks/          record layouts      APINVREC APPOREC APRCVREC APVNDREC APVCHREC APEXCREC
-  jcl/                jobs                APMCD010.jcl
+                                          APPAYREC APPHLREC APWRKREC
+  jcl/                jobs                APMCD010 APMCD020 APMCD030
   schedules/          scheduler extract   APMC-daily.txt (predecessors / successors)
   db2/                DDL for tables the application unloads from
   layouts/            DD -> copybook -> LRECL -> business key map
@@ -27,6 +28,13 @@ APPOLINE PO lines ─┤                           ┌─ APVOUCHR approved vouc
 APRCVLN  receipts ─┼─ SORT ─ APMATCH1 ─────────┼─ APEXCEPT match exceptions -> AP clerk work queue
 APVENDOR vendors  ─┘   (3-way match, terms)    └─ APRPT    control report   (+ return code 0/4/8/16)
 ```
+
+## APMCD020 and APMCD030
+
+| Job      | Program  | Reads                                 | Writes                                   |
+|----------|----------|---------------------------------------|------------------------------------------|
+| APMCD020 | APPAYSL1 | APVOUCHR (from APMCD010), APVENDOR    | APPAYMT payments, APPAYHLD held, APPAYDEF deferred, report |
+| APMCD030 | APEXQUE1 | APEXCEPT (from APMCD010), APVENDOR    | APWRKQ clerk work items, report          |
 
 ## Where the baseline comes from
 

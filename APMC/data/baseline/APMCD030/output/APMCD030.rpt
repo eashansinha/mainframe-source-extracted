@@ -1,0 +1,20 @@
+APEXQUE1                AP MATCH EXCEPTIONS - WORK QUEUE CONTROL REPORT                         RUN DATE 2026-09-24                 
+                                                                                                                                    
+QUEUE SUMMARY                                                                                                                       
+  VENDORS LOADED                      12                                                                                            
+  EXCEPTIONS READ                     15                                                                                            
+  PRIORITY 1 ITEMS                     1                                                                                            
+  PRIORITY 2 ITEMS                     8                                                                                            
+  PRIORITY 3 ITEMS                     6                                                                                            
+  ESCALATED OVER 1,000.00              5                                                                                            
+  VENDOR NOT ON MASTER                 1                                                                                            
+  INVOICE AMOUNT QUEUED                      12,474.53                                                                              
+                                                                                                                                    
+ITEMS BY QUEUE                                                                                                                      
+  QUEUE                            ITEMS        INVOICE AMOUNT                                                                      
+  APOP AP OPERATIONS                   2              3,327.50                                                                      
+  BUYR BUYER AND RECEIVING             9              8,544.03                                                                      
+  DUPL DUPLICATE REVIEW                1                 47.40                                                                      
+  VNDR VENDOR MAINTENANCE              3                555.60                                                                      
+                                                                                                                                    
+*** END OF REPORT ***                                                                                                               
