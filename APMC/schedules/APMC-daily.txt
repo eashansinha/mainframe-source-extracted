@@ -1,0 +1,18 @@
+APMC DAILY BATCH - scheduler extract (application mnemonic APMC)
+================================================================
+Format: JOB  WINDOW  PREDECESSORS -> SUCCESSORS  (MAXCC allowed)
+
+APMCV001  00:30  (none)                          -> APMCD010          (0)
+POXTR010  00:45  POPROD DB2 unload               -> APMCD010          (0)
+RCVXT010  00:45  WMS receipts feed               -> APMCD010          (0)
+APMCD005  01:00  EDI 810 + scanned invoices      -> APMCD010          (0,4)
+APMCD010  01:30  APMCV001 POXTR010 RCVXT010
+                 APMCD005                        -> APMCD020 APMCD030 (0,4)
+APMCD020  03:00  APMCD010                        -> TRSD100 (treasury ACH/check files)
+APMCD030  05:00  APMCD010                        -> AP clerk work queue (online)
+
+Notes
+- APMCD010 RC 4 (exceptions written) is normal; RC 8+ holds APMCD020 and pages AP ops.
+- APMCD020 pays only what APMCD010 wrote to AP.PROD.APVOUCHR.DAILY(0).
+- Only APMCD010 is in scope for the demo migration; the others are listed for
+  dependency context.

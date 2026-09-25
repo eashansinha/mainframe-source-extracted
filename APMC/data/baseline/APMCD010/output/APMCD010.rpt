@@ -1,0 +1,39 @@
+APMATCH1                AP THREE-WAY MATCH - VOUCHER CONTROL REPORT                             RUN DATE 2026-09-24                 
+                                                                                                                                    
+REFERENCE DATA                                                                                                                      
+  VENDORS LOADED                      12                                                                                            
+  OPEN PO LINES LOADED                50                                                                                            
+  RECEIPTS READ                       51                                                                                            
+  RECEIPTS WITHOUT OPEN PO LINE        1                                                                                            
+                                                                                                                                    
+MATCH SUMMARY                                                                                                                       
+  INVOICES READ                       59                                                                                            
+  INVOICES APPROVED                   44                                                                                            
+  INVOICES EXCEPTED                   15                                                                                            
+  DISCOUNTS TAKEN                     13                                                                                            
+  INVOICE AMOUNT READ                     3,351,577.50                                                                              
+  GROSS APPROVED                          3,339,102.97                                                                              
+  DISCOUNT TAKEN                             15,745.60                                                                              
+  NET APPROVED                            3,323,357.37                                                                              
+  EXCEPTED AMOUNT                            12,474.53                                                                              
+                                                                                                                                    
+APPROVED BY PAY METHOD                                                                                                              
+  PAY METHOD    VOUCHERS            NET AMOUNT                                                                                      
+  ACH                 31          2,469,322.70                                                                                      
+  CHK                 13            854,034.67                                                                                      
+                                                                                                                                    
+EXCEPTIONS BY REASON                                                                                                                
+  REASON                               INVOICE        INVOICE AMOUNT                                                                
+  E001 DUPLICATE INVOICE                     1                 47.40                                                                
+  E002 VENDOR NOT ON FILE                    1                 10.00                                                                
+  E003 VENDOR NOT ACTIVE                     2                545.60                                                                
+  E004 NON-USD CURRENCY                      1              2,640.00                                                                
+  E005 PO LINE NOT ON FILE                   1                264.00                                                                
+  E006 PO VENDOR MISMATCH                    1                264.00                                                                
+  E007 PO LINE CLOSED OR HELD                2              3,750.00                                                                
+  E008 UNKNOWN PAYMENT TERMS                 1                687.50                                                                
+  E009 EXTENSION ERROR                       1                123.47                                                                
+  E010 QTY EXCEEDS RECEIVED                  2              2,624.00                                                                
+  E011 PRICE OVER TOLERANCE                  2              1,518.56                                                                
+                                                                                                                                    
+*** END OF REPORT ***                                                                                                               
